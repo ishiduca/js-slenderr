@@ -1,6 +1,6 @@
 {
   "name": "slenderr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "defines the constructor of the error object of your own",
   "main": "index.js",
   "dependencies": {},
@@ -9,6 +9,10 @@
   },
   "scripts": {
     "test": "tap --tap t/*js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ishiduca/js-slenderr.git"
   },
   "keywords": [
     "error",
