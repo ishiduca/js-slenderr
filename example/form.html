@@ -1,0 +1,84 @@
+<!doctype html>
+<head>
+<meta charset="utf-8" />
+<script src="../index.js"></script>
+<title></title>
+</head>
+<body>
+<form action="javascript:void(0)">
+    <h1>Register</h1>
+    <dl>
+        <dt><h3>user name</h3></dt>
+        <dd><input type="text"
+                   id="user_name"
+        /></dd>
+        <dt><h3>password</h3></dt>
+        <dd><input type="password"
+                   id="password"
+        /></dd>
+    </dl>
+    <div><button type="submit">register</button></div>
+</form>
+<div id="results"></div>
+
+<script>
+;(function (global) {
+    'use strict'
+
+    if (! global.console) global.console = {}
+    if (! global.console.log) global.console.log = function () {}
+
+    var d = document
+    var myerr = {}
+
+    function puts () {
+        d.querySelector('#results').textContent
+          = ([]).slice.apply(arguments).join(' ')
+    }
+
+    Slenderr.define.apply(myerr, [
+        'register', 'can not register', {dom: 'user_name'} ])
+
+    var doms = {
+        user_name: d.querySelector('#user_name')
+      , password:  d.querySelector('#password')
+    }
+
+    var valids = {
+        user_name: {
+            tester: /^\w{4,8}$/
+          , message: 'user_name\'s charactors must be 4~8'
+          , dom: 'user_name'
+        }
+      , password: {
+            tester: /^\w{7,}$/
+          , message: 'password\'s charactors must be over 7'
+          , dom: 'password'
+        }
+    }
+
+    function validator (val) {
+        val = val.replace(/^\s*/, '').replace(/\s*$/, '')
+        if (! this.tester.test(val))
+            throw new myerr.RegisterError(this.message, {dom: this.dom})
+        return val
+    }
+
+    d.querySelectorAll('form')[0].onsubmit = function (ev) {
+        try {
+            var q = {}
+            Object.keys(doms).forEach(function (name) {
+                q[name] = validator.apply(valids[name], [doms[name].value])
+            })
+            puts(JSON.stringify(q))
+        } catch (err) {
+            console.log(err.stack)
+            puts(String(err))
+            doms[err.dom].focus()
+        }
+    }
+
+    doms.user_name.focus()
+})(this.self)
+</script>
+</body>

@@ -1,0 +1,21 @@
+{
+  "name": "slenderr",
+  "version": "0.0.1",
+  "description": "defines the constructor of the error object of your own",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^2.14.0"
+  },
+  "scripts": {
+    "test": "tap --tap t/*js"
+  },
+  "keywords": [
+    "error",
+    "custom",
+    "customize",
+    "exception"
+  ],
+  "author": "ishiduca@gmail.com",
+  "license": "MIT"
+}
