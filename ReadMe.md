@@ -1,7 +1,7 @@
 # slenderr
 
 defines the error object of your own.
-inherits the Error.prototype. but _does not let you perform multiple inheritance_.
+inherits the Error.prototype. but __does not let you perform multiple inheritance__.
 
 ## synopsis
 
@@ -15,15 +15,22 @@ console.log(err.name) // 'CookieParseError'
 console.log(err.message) // 'not found response.headers.cookie'
 ```
 
+#### in browser
+
+```html
+<script src="path/to/slederr/index.js"></script>
+Slenderr.define(...)
+```
+
 ## methods
 
 ### define(name[, defaultMessage [, defaultOption]])
 
-defines the Constructor and attaches to _Slenderr_.
+defines the Constructor and attaches to __Slenderr__.
 
-* name           {String} _required_ error name. this name is _camelized_ automatically.
-* defaultMessage {String} _optional_ default error message.
-* defaultOption  {Object} _optional_ the pair of the properties to add to error.
+* name           *{String}* __required__ error name. this name is __camelized__ automatically.
+* defaultMessage *{String}* __optional__ default error message.
+* defaultOption  *{Object}* __optional__ the pair of the properties to add to error.
 
 
 ## defined constructors
@@ -31,12 +38,12 @@ defines the Constructor and attaches to _Slenderr_.
 defined the Constructor is camelized and attaches to Slenderr.
 
 ```js
-Slenderr.define(error_ name)
+Slenderr.define(error\_name)
 var err = new Slenderr.ErrorNameError(message[, option])
 ```
 
-* message {String} _optional_ error message. override default error message.
-* option  {Object} _optional_ additional properties. override default option.
+* message *{String}* __optional__ error message. override default error message.
+* option  *{Object}* __optional__ additional properties. override default option.
 
 ```js
 Slenderr.define('cookie parse', 'can not parse cookie', {code: 400})
@@ -69,12 +76,12 @@ console.log(err instanceof Slenderr.FooError) // false
 ```
 
 
-## stack
+## stacktrace
 
 ...
 
 
-##tips: defines in the small scope
+### tips: defines in the small scope
 
 use `call` or `apply`
 
@@ -86,3 +93,7 @@ function scp () {
     ...
 }
 ```
+
+## license
+
+MIT
