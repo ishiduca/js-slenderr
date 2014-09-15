@@ -19,6 +19,8 @@ function define (_name, _message, _option) {
             return new _constructor(_mes, _option)
         }
 
+        Error.call(this)
+
         if (_mes && 'string' === typeof _mes) this.message = _mes
         merge(this, _option)
 
@@ -27,8 +29,12 @@ function define (_name, _message, _option) {
         } else {
             var err = Error(this.message)
             err.name = name
-            this.stack = err.stack || err.stacktrace ||
-                err.toString() + '\n    sorry... error.stack not found'
+//            this.stack = err.stack || err.stacktrace ||
+//                err.toString() + '\n    sorry... error.stack not found'
+            if ((err.stack || err.stacktrace) && ! this.stack) {
+                this.stack = err.stack || err.stacktrace
+            }
+            if (! this.stack) err.toString() + '\n    sorry... error.stack not found'
         }
 
         return this
