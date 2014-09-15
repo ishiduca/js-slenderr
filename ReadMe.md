@@ -18,7 +18,7 @@ console.log(err.message) // 'not found response.headers.cookie'
 #### in browser
 
 ```html
-<script src="path/to/slederr/index.js"></script>
+<script src="path/to/slenderr/index.js"></script>
 Slenderr.define(...)
 ```
 
@@ -38,7 +38,7 @@ defines the Constructor and attaches to __Slenderr__.
 defined the Constructor is camelized and attaches to Slenderr.
 
 ```js
-Slenderr.define(error\_name)
+Slenderr.define(error_name)
 var err = new Slenderr.ErrorNameError(message[, option])
 ```
 
