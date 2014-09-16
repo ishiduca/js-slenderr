@@ -8,7 +8,19 @@
     "tape": "^2.14.0"
   },
   "scripts": {
-    "test": "tap --tap t/*js"
+    "test": "tape t/*js"
+  },
+  "testling": {
+    "files": "t/*.js",
+    "browsers": [
+        "ie/6..latest",
+        "chrome/20..latest",
+        "ff/3.5..latest",
+        "safari/5.0..latest",
+        "opera/11.0..latest",
+        "android-browser/4.2..latest",
+        "iphone/6.0..latest"
+    ]
   },
   "repository": {
     "type": "git",
