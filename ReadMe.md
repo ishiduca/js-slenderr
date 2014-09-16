@@ -83,6 +83,17 @@ console.log(err instanceof Slenderr.FooError) // false
 
 ...
 
+## test
+
+```
+$ npm test
+```
+
+#### with browserify and testling
+
+```
+$ npm run testling
+```
 
 ### tips: defines in the small scope
 
