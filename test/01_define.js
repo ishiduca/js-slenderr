@@ -1,5 +1,6 @@
+var path = require('path')
 var test = require('tape').test
-var Slenderr = require('..')
+var Slenderr = require(path.join(__dirname, '../lib/slenderr'))
 
 function teardown () {
     Object.keys(Slenderr).forEach(function (Constructor) {

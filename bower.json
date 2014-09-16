@@ -1,7 +1,7 @@
 {
   "name": "slenderr",
-  "main": "index.js",
-  "version": "0.0.3",
+  "main": "./lib/slenderr.js",
+  "version": "0.0.4",
   "homepage": "https://github.com/ishiduca/js-slenderr",
   "authors": [
     "ishiduca <ishiduca@gmail.com>"

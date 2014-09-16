@@ -1,6 +1,6 @@
 {
   "name": "slenderr",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "defines the constructor of the error object of your own",
   "main": "index.js",
   "dependencies": {},
@@ -29,7 +29,6 @@
   "keywords": [
     "error",
     "custom",
-    "customize",
     "exception"
   ],
   "author": "ishiduca@gmail.com",

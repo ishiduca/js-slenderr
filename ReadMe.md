@@ -18,9 +18,12 @@ console.log(err.message) // 'not found response.headers.cookie'
 #### in browser
 
 ```html
-<script src="path/to/slenderr/index.js"></script>
+<script src="path/to/slenderr/lib/slenderr.js"></script>
 Slenderr.define(...)
 ```
+
+or with [browerify](https://www.npmjs.org/package/browserify).
+
 
 ## methods
 
