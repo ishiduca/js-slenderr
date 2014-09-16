@@ -8,7 +8,8 @@
     "tape": "^2.14.0"
   },
   "scripts": {
-    "test": "tape t/*js"
+    "test": "tape t/*js",
+    "testling": "browserify t/*.js | testling"
   },
   "testling": {
     "files": "t/*.js",
