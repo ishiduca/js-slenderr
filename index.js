@@ -45,6 +45,14 @@ function define (_name, _message, _option) {
     this[name].prototype.name = name
     this[name].prototype.message = _message || _name + ' error'
 
+    var proto = this[name].prototype
+    this[name].prototype.json = function () {
+        var me = {}
+        merge(me, proto)
+        merge(me, this)
+        return JSON.stringify(me)
+    }
+
     return this
 }
 

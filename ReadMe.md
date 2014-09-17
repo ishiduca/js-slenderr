@@ -83,6 +83,18 @@ console.log(err instanceof Slenderr.FooError) // false
 
 ...
 
+
+## to JSON string
+
+exports to the JSON string containing your own error object.
+
+```js
+Slenderr.define('foo', 'bar is not foo', {code: 100})
+
+console.log((new Slenderr.FooError).json())
+// {"code":100,"name":"FooError","message":"bar is not foo"}
+```
+
 ## test
 
 ```
