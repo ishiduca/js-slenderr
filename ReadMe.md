@@ -11,8 +11,9 @@ var Slenderr = require('slenderr')
 Slenderr.define('cookie parse')
 // can use "Slenderr.CookieParseError"
 var err = new Slenderr.CookieParseError('not found response.headers.cookie')
-console.log(err.name) // 'CookieParseError'
+console.log(err.name)    // 'CookieParseError'
 console.log(err.message) // 'not found response.headers.cookie'
+console.log(err.json())  // '{"name":"CookieParseError","message":"not found response.headers.cookie"}'
 ```
 
 #### in browser
