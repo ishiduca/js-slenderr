@@ -3,5 +3,6 @@
 *.swp
 node_modules/
 bower_components/
-xt/
+test/
+lib/x
 *config.json
