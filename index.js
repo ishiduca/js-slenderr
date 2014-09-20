@@ -57,11 +57,12 @@ function define (_name, _message, _option) {
 }
 
 
-if (module && module.exports) {
-    module.exports.define = define
-} else if (this.self) {
+if (this.self || this.WorkerLocation) {
     ;(this['Slenderr'] || (this['Slenderr'] = {})) && (this['Slenderr'].define = define)
+} else {
+	module.exports.define = define
 }
+
 
 function camelize (str) {
 //    function uc (str) { return str.slice(0,1).toUpperCase() + str.slice(1) }

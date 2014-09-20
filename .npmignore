@@ -1,0 +1,9 @@
+.DS_Store
+*~
+*.swp
+.git*
+.npmignore
+.travis.yml
+bower_components/
+node_modules/
+xt/

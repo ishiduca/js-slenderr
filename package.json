@@ -1,6 +1,6 @@
 {
   "name": "slenderr",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "defines the constructor of the error object of your own",
   "main": "index.js",
   "dependencies": {},
