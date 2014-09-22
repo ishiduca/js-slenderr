@@ -1,6 +1,6 @@
 {
   "name": "slenderr",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "defines the constructor of the error object of your own",
   "main": "index.js",
   "dependencies": {},
@@ -8,7 +8,7 @@
     "tape": "^2.14.0"
   },
   "scripts": {
-    "test": "tape t/*js",
+    "test": "tape t/*js xt/*.js",
     "testling": "browserify t/*.js | testling"
   },
   "testling": {

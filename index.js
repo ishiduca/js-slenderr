@@ -46,21 +46,32 @@ function define (_name, _message, _option) {
     this[name].prototype.message = _message || _name + ' error'
 
     var proto = this[name].prototype
-    this[name].prototype.json = function () {
-        var me = {}
-        merge(me, proto)
-        merge(me, this)
-        return JSON.stringify(me)
-    }
+    this[name].prototype.json = json
 
     return this
+
+    function json () {
+        var me = {}
+        var cache = []
+        merge(me, proto)
+        merge(me, this)
+        //return JSON.stringify(me)
+        return JSON.stringify(me, function replacer (key, val) {
+            if (!! val && 'object' === typeof val) {
+                if (indexOf(cache, val) !== -1) return
+                cache.push(val)
+            }
+            return val
+        })
+    }
+
 }
 
 
 if (this.self || this.WorkerLocation) {
     ;(this['Slenderr'] || (this['Slenderr'] = {})) && (this['Slenderr'].define = define)
 } else {
-	module.exports.define = define
+    module.exports.define = define
 }
 
 
@@ -83,3 +94,11 @@ function merge (org, _opt) {
 }
 
 function isType (o) { return ({}).toString.apply(o).slice(8, -1) }
+
+function indexOf (arry, target) {
+    if (arry.indexOf) return arry.indexOf(target)
+    for (var i = 0, len = arry.length; i < len; i++) {
+        if (target === arry[i]) return i
+    }
+    return -1
+}
