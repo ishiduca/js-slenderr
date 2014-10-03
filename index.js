@@ -1,3 +1,4 @@
+;(function (global) {
 'use strict'
 
 function define (_name, _message, _option) {
@@ -28,10 +29,9 @@ function define (_name, _message, _option) {
         } else {
             var err = Error(this.message)
             err.name = name
-            if ((err.stack || err.stacktrace) && ! this.stack) {
+            if (! this.stack && (err.stack || err.stacktrace)) {
                 this.stack = err.stack || err.stacktrace
             }
-            if (! this.stack) err.toString() + '\n    sorry... error.stack not found'
         }
 
         return this
@@ -55,7 +55,6 @@ function define (_name, _message, _option) {
         var cache = []
         merge(me, proto)
         merge(me, this)
-        //return JSON.stringify(me)
         return JSON.stringify(me, function replacer (key, val) {
             if (!! val && 'object' === typeof val) {
                 if (indexOf(cache, val) !== -1) return
@@ -67,17 +66,9 @@ function define (_name, _message, _option) {
 
 }
 
-
-if (this.self || this.WorkerLocation) {
-    ;(this['Slenderr'] || (this['Slenderr'] = {})) && (this['Slenderr'].define = define)
-} else {
-    module.exports.define = define
-}
-
+module.exports.define = define
 
 function camelize (str) {
-//    function uc (str) { return str.slice(0,1).toUpperCase() + str.slice(1) }
-//    return str.split(/[\s\-_.:*/]+/).map(uc).join('')
     var res = [], reg = /[\s\-_.:*/]+/
     var p = str.split(reg)
     for (var i = 0, len = p.length; i < len; i++) {
@@ -102,3 +93,5 @@ function indexOf (arry, target) {
     }
     return -1
 }
+
+})(global)
