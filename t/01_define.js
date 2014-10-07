@@ -23,6 +23,11 @@ test('Slenderr.define(error_name, _default_message, _default_option)', function 
           , 'Slenderr.define("set-cookie parse")' +
             ' attach "Slenderr.SetCookieParseError"')
 
+        Slenderr.define('g error')
+        tt.ok(Slenderr.GError
+          , 'Slenderr.define("e error")' +
+            ' attach "Slenderr.GError"')
+
         teardown()
         tt.end()
     })
